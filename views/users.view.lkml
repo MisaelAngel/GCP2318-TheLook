@@ -32,6 +32,8 @@ view: users {
   dimension: first_name {
     type: string
     sql: ${TABLE}.first_name ;;
+    # order_by_field: id
+    # order_by_field: orders.id
   }
   dimension: gender {
     type: string
@@ -49,6 +51,19 @@ view: users {
     type: zipcode
     sql: ${TABLE}.zip ;;
   }
+
+  # dimension: site_image {
+  #   type: string
+  #   sql: ${id} ;;
+  #   html:
+  #   <img src="https://www.nutrisystem.com/images/global/NS-logo.svg" width="200" height="35" align="right"/> ;;
+  # }
+
+  # dimension: userattribute {
+  #   type: string
+  #   sql: {{_user_attributes['model']}} ;;
+  # }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -57,15 +72,15 @@ view: users {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	first_name,
-	last_name,
-	events.count,
-	orders.count,
-	saralooker.count,
-	sindhu.count,
-	user_data.count
-	]
+  id,
+  first_name,
+  last_name,
+  events.count,
+  orders.count,
+  saralooker.count,
+  sindhu.count,
+  user_data.count
+  ]
   }
 
 }
