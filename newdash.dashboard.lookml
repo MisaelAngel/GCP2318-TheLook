@@ -1,4 +1,4 @@
-- dashboard: users
+- dashboard: users_test
   title: Users
   layout: newspaper
   preferred_viewer: dashboards-next
