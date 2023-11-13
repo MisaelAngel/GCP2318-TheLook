@@ -217,7 +217,12 @@ explore: test {}
 
 explore: test_space_in_column_name {}
 
-explore: users {}
+explore: users {
+  # always_filter: {
+  #   filters: [users.created_date: "30 days"]
+  # }
+  # sql_always_where: ${created_date} >= '2018-01-01' ;;
+}
 
 explore: user_data {
   join: users {

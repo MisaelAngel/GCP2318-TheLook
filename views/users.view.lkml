@@ -24,7 +24,25 @@ view: users {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
+    # label: "Created"
+    # group_item_label: "Created_using_GIL"
+    # html: <p>Created</p> ;;
   }
+
+  dimension: createdmonth{
+    type: string
+    sql: ${created_month} ;;
+    label: "Created"
+    group_label: "Created Dimensions"
+  }
+
+  dimension: createdyear{
+    type: string
+    sql: ${created_year} ;;
+    label: "Created"
+    group_label: "Created Dimensions"
+  }
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
@@ -47,6 +65,18 @@ view: users {
     type: string
     sql: ${TABLE}.state ;;
   }
+
+  dimension: state2 {
+    # type: string
+    sql: case when ${state} = 'California' then 1 else 1 end ;;
+  }
+
+  # measure: test {
+  #   type: sum
+  #   sql: ${state2} ;;
+  #   drill_fields: [detail*]
+  # }
+
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
@@ -69,6 +99,12 @@ view: users {
     drill_fields: [detail*]
   }
 
+  measure: number_test {
+    type: number
+    sql: 41242864841504574 ;;
+    # value_format: "[>999999999999]0.0,,,,\"T\";[>999999999]0.0,,,\"B\"; [>999999]0.0,,\"M\"; 0.0,\"K\""
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
@@ -79,7 +115,7 @@ view: users {
   orders.count,
   saralooker.count,
   sindhu.count,
-  user_data.count
+  user_data.count,
   ]
   }
 

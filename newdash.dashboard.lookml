@@ -1,5 +1,5 @@
 - dashboard: users_test
-  title: Users
+  title: " "
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -7,7 +7,7 @@
   elements:
   - title: User Count by State
     name: User Count by State
-    model: modeldashtest
+    model: mtrmisathelook
     explore: users
     type: looker_grid
     fields: [users.count, users.state]

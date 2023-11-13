@@ -1,5 +1,5 @@
 - dashboard: users
-  title: Users
+  title: " " #Enterprise Key Indicators (Practice List)
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''

@@ -13,6 +13,7 @@ view: orders {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
+    drill_fields: []
   }
   dimension: status {
     type: string
